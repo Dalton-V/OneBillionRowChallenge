@@ -1,5 +1,9 @@
-﻿using System.Diagnostics;
+﻿using OneBillionRowChallenge;
+using System.Diagnostics;
 using System.Text;
+
+var createTestFiles = new CreateTestFiles();
+createTestFiles.CreateFile(100_000_000);
 
 Console.WriteLine("Starting.");
 var sw = Stopwatch.StartNew();
@@ -16,13 +20,17 @@ foreach (var line in fileLines)
     {
         record.Count++;
         record.Sum += double.Parse(data[1]);
+        record.Min = Math.Min(record.Min, double.Parse(data[1]));
+        record.Max = Math.Max(record.Max, double.Parse(data[1]));
     }
     else
     {
         locationData[data[0]] = new TemperatureRecord
         {
             Count = 1,
-            Sum = double.Parse(data[1])
+            Sum = double.Parse(data[1]),
+            Min = double.Parse(data[1]),
+            Max = double.Parse(data[1])
         };
     }
 }
@@ -31,7 +39,7 @@ var sb = new StringBuilder();
 
 foreach (var kvp in locationData)
 {
-    sb.Append($"{kvp.Key}={kvp.Value.Min}/{kvp.Value.Sum/kvp.Value.Count}/{kvp.Value.Min}, ");
+    sb.Append($"{kvp.Key}={kvp.Value.Min}/{Math.Round(kvp.Value.Sum/kvp.Value.Count, 1)}/{kvp.Value.Max}, ");
 }
 
 Console.WriteLine(sb.ToString());

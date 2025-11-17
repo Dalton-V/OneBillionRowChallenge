@@ -1,3 +1,7 @@
 <Solution>
+  <Folder Name="/Solution Items/">
+    <File Path="Data/weather_stations.csv" />
+    <File Path="README.md" />
+  </Folder>
   <Project Path="OneBillionRowChallenge/OneBillionRowChallenge.csproj" />
 </Solution>
