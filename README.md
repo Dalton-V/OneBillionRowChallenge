@@ -69,4 +69,8 @@ internal class TemperatureRecord
 
 This approach was straightforward but had significant performance issues due to high memory consumption and processing time.
 
-{:test}
+<div class="SomeClass" markdown="block">
+|Header 1| Header 2|
+|---|---|
+|Data 1 | Data 2|
+</div>
