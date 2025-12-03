@@ -69,4 +69,4 @@ internal class TemperatureRecord
 
 This approach was straightforward but had significant performance issues due to high memory consumption and processing time.
 
-{.test}
+{: .test}
